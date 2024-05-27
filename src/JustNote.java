@@ -3,7 +3,7 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.*;
 import java.awt.*;
-import com.formdev.flatlaf.FlatDarkLaf;
+// import com.formdev.flatlaf.FlatDarkLaf;
 
 // create a class to load the fonts and place them in the JComboBox in a seperate thread
 
@@ -45,7 +45,7 @@ class FontLoaderThread extends Thread
 
 			System.out.println(threadName+" completed...");
 
-			Notepad.fontFamilyComboBox = fontFamilyComboBox;
+			JustNote.fontFamilyComboBox = fontFamilyComboBox;
 		}
 
 		catch(Exception e)
@@ -55,7 +55,7 @@ class FontLoaderThread extends Thread
 	}
 }
 
-class Notepad
+class JustNote
 {
 	static volatile JComboBox<String> fontFamilyComboBox = new JComboBox<>();
 
@@ -100,7 +100,7 @@ class Notepad
 
 		// create a JFrame
 
-		JFrame frame = new JFrame("Untitled - Notepad (Unsaved)");
+		JFrame frame = new JFrame("Untitled - JustNote (Unsaved)");
 
 		frame.setSize(500, 500);
 
@@ -355,11 +355,11 @@ class Notepad
 
 				if(title.contains("(Unsaved)"))
 				{
-					currFilePath = title.substring(0, title.length() - 20); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"							
+					currFilePath = title.substring(0, title.length() - 21); // extracts the filename from the title of the frame containing the line "<filename> - JustNote (Saved/Unsaved)"							
 				}
 				else if(title.contains("(Saved)"))
 				{
-					currFilePath = title.substring(0, title.length() - 18); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+					currFilePath = title.substring(0, title.length() - 19); // extracts the filename from the title of the frame containing the line "<filename> - JustNote (Saved/Unsaved)"
 				}
 
 				File opened_file = new File(currFilePath);
@@ -502,11 +502,11 @@ class Notepad
 
 				if(title.contains("(Unsaved)"))
 				{
-					currFilePath = title.substring(0, title.length() - 20); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"							
+					currFilePath = title.substring(0, title.length() - 21); // extracts the filename from the title of the frame containing the line "<filename> - JustNote (Saved/Unsaved)"							
 				}
 				else if(title.contains("(Saved)"))
 				{
-					currFilePath = title.substring(0, title.length() - 18); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+					currFilePath = title.substring(0, title.length() - 19); // extracts the filename from the title of the frame containing the line "<filename> - JustNote (Saved/Unsaved)"
 				}
 
 				File opened_file = new File(currFilePath);
@@ -620,11 +620,11 @@ class Notepad
 
 				if(title.contains("(Unsaved)"))
 				{
-					currFilePath = title.substring(0, title.length() - 20); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"							
+					currFilePath = title.substring(0, title.length() - 21); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"							
 				}
 				else if(title.contains("(Saved)"))
 				{
-					currFilePath = title.substring(0, title.length() - 18); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+					currFilePath = title.substring(0, title.length() - 19); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
 				}
 
 				File opened_file = new File(currFilePath);
@@ -844,7 +844,7 @@ class Notepad
 
 					// add the absolute filepath in the title bar of the notepad
 
-					frame.setTitle(selectedFile.getAbsolutePath()+" - Notepad (Saved)");
+					frame.setTitle(selectedFile.getAbsolutePath()+" - JustNote (Saved)");
 
 					// set the font format as per it's font config file present in the config folder of the application folder
 
@@ -922,7 +922,7 @@ class Notepad
 
 								// add the absolute file path in the title bar of the notepad
 
-								frame.setTitle(filename + " - Notepad (Saved)");
+								frame.setTitle(filename + " - JustNote (Saved)");
 
 								// write the data from the current text area of the notepad to the file created
 
@@ -978,11 +978,11 @@ class Notepad
 
 						if(title.contains("(Unsaved)"))
 						{
-							currFilePath = title.substring(0, title.length() - 20); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"							
+							currFilePath = title.substring(0, title.length() - 21); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"							
 						}
 						else if(title.contains("(Saved)"))
 						{
-							currFilePath = title.substring(0, title.length() - 18); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+							currFilePath = title.substring(0, title.length() - 19); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
 						}
 
 						// to get the name of the file
@@ -1080,11 +1080,11 @@ class Notepad
 
 				if(title.contains("(Unsaved)"))
 				{
-					currFilePath = title.substring(0, title.length() - 20); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+					currFilePath = title.substring(0, title.length() - 21); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
 				}
 				else if(title.contains("(Saved)"))
 				{
-					currFilePath = title.substring(0, title.length() - 18); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+					currFilePath = title.substring(0, title.length() - 19); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
 				}
 
 				if(title.contains("(Unsaved)") && !containsWord(title, "Untitled"))
@@ -1145,7 +1145,7 @@ class Notepad
 
 						// add the absolute file path in the title bar of the notepad
 
-						frame.setTitle(filename+" - Notepad (Saved)");
+						frame.setTitle(filename+" - JustNote (Saved)");
 
 						// write the data from the current text area of the notepad to the file currently opended in the notepad
 
@@ -1200,7 +1200,7 @@ class Notepad
 
 					// add the absolute file path in the title bar of the notepad
 
-					frame.setTitle(filename+" - Notepad (Saved)");
+					frame.setTitle(filename+" - JustNote (Saved)");
 
 					String data = textArea.getText();
 
@@ -1263,7 +1263,7 @@ class Notepad
 
 				// set the title of the JFrame of the notepad to the program's default Jframe title
 
-				frame.setTitle("Untitled - Notepad (Unsaved)");
+				frame.setTitle("Untitled - JustNote (Unsaved)");
 			}
 
 			@Override
@@ -1307,7 +1307,7 @@ class Notepad
 
 								// add the absolute file path in the title bar of the notepad
 
-								frame.setTitle(filename + " - Notepad (Saved)");
+								frame.setTitle(filename + " - JustNote (Saved)");
 
 								// write the data from the current text area of the notepad to the file created
 
@@ -1391,11 +1391,11 @@ class Notepad
 
 						if(title.contains("(Unsaved)"))
 						{
-							currFilePath = title.substring(0, title.length() - 20); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+							currFilePath = title.substring(0, title.length() - 21); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
 						}
 						else if(title.contains("(Saved)"))
 						{
-							currFilePath = title.substring(0, title.length() - 18); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+							currFilePath = title.substring(0, title.length() - 19); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
 						}
 
 						// to get the name of the file
@@ -1493,7 +1493,7 @@ class Notepad
 
 				// set the title of the JFrame of the notepad to the program's default Jframe title
 
-				frame.setTitle("Untitled - Notepad (Unsaved)");
+				frame.setTitle("Untitled - JustNote (Unsaved)");
 			}
 
 			@Override
@@ -1537,7 +1537,7 @@ class Notepad
 
 								// add the absolute file path in the title bar of the notepad
 
-								frame.setTitle(filename + " - Notepad (Saved)");
+								frame.setTitle(filename + " - JustNote (Saved)");
 
 								// write the data from the current text area of the notepad to the file created
 
@@ -1621,11 +1621,11 @@ class Notepad
 
 						if(title.contains("(Unsaved)"))
 						{
-							currFilePath = title.substring(0, title.length() - 20); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+							currFilePath = title.substring(0, title.length() - 21); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
 						}
 						else if(title.contains("(Saved)"))
 						{
-							currFilePath = title.substring(0, title.length() - 18); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
+							currFilePath = title.substring(0, title.length() - 19); // extracts the filename from the title of the frame containing the line "<filename> - Notepad (Saved/Unsaved)"
 						}
 
 						// to get the name of the file
