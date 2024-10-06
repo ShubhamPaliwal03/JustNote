@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.*;
 import java.awt.*;
+import javax.swing.undo.*;
 // import com.formdev.flatlaf.FlatDarkLaf;
 
 // create a class to load the fonts and place them in the JComboBox in a seperate thread
@@ -152,6 +153,16 @@ class JustNote
 
 		JMenuItem findItem = new JMenuItem("Find");
 
+		JMenuItem undoItem = new JMenuItem("Undo");
+
+		JMenuItem redoItem = new JMenuItem("Redo");
+
+		undoItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, KeyEvent.CTRL_DOWN_MASK));
+
+		redoItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y, KeyEvent.CTRL_DOWN_MASK));
+
+		UndoManager undoManager = new UndoManager();
+
 		// set the keyboard shortcut for the findItem using the KeyStroke, which will serve as an accelerator
 
 		findItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F, KeyEvent.CTRL_DOWN_MASK | KeyEvent.SHIFT_DOWN_MASK));
@@ -279,6 +290,26 @@ class JustNote
 				}
 			}
 		});
+
+		undoItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (undoManager.canUndo()) {
+					undoManager.undo();
+				}
+			}
+		});
+
+		redoItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (undoManager.canRedo()) {
+					undoManager.redo();
+				}
+			}
+		});
+
+		textArea.getDocument().addUndoableEditListener(undoManager);
 
 		// create a dialog box for font formatting options
 
@@ -760,8 +791,6 @@ class JustNote
 					while((i = bin.read()) != -1)
 					{
 						sb.append(String.valueOf((char)i));
-
-						i++;
 					}
 				}
 				
@@ -1728,6 +1757,10 @@ class JustNote
 		// add JMenuItems to the Edit Menu
 
 		editMenu.add(findItem);
+
+		editMenu.add(undoItem);
+
+		editMenu.add(redoItem);
 
 		// add JMenuItems to the Format Menu
 
